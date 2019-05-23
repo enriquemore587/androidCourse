@@ -2,43 +2,37 @@ package com.enriquemore587.myapplication;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private EditText editText1;
+    private EditText editText2;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toast.makeText(this, "onCreate", Toast.LENGTH_LONG).show();
+        this.editText1 = (EditText) findViewById(R.id.txt_num1);
+        this.editText2 = (EditText) findViewById(R.id.txt_num2);
+        this.textView = (TextView) findViewById(R.id.txt_resultado);
     }
 
-    @Override
-    protected void onStart(){
-        super.onStart();
-        Toast.makeText(this, "onStart", Toast.LENGTH_LONG).show();
-    }
+    // Este metodo realiza suma
+    public void suma(View view) {
+        String valor1 = this.editText1.getText().toString();
+        String valor2 = this.editText2.getText().toString();
 
-    @Override
-    protected void onResume(){
-        super.onResume();
-        Toast.makeText(this, "onResume", Toast.LENGTH_LONG).show();
-    }
+        int num1 = Integer.parseInt(valor1);
+        int num2 = Integer.parseInt(valor2);
 
-    protected void onPause(){
-        super.onPause();
-        Toast.makeText(this, "onPause", Toast.LENGTH_LONG).show();
-    }
+        int suma = num1 + num2;
 
-    @Override
-    protected void onStop(){
-        super.onStop();
-        Toast.makeText(this, "onStop", Toast.LENGTH_LONG).show();
-    }
+        String resultado = String.format("%s %s", this.textView.getText(), String.valueOf(suma));
 
-    @Override
-    protected void onDestroy(){
-        super.onDestroy();
-        Toast.makeText(this, "onDestroy", Toast.LENGTH_LONG).show();
+        this.textView.setText(resultado);
     }
 }
