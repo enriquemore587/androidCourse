@@ -8,31 +8,30 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText editText1;
-    private EditText editText2;
-    private TextView textView;
+    private EditText etQuim;
+    private EditText etCalc;
+    private EditText etInv;
+    private EditText etSis;
+    private TextView tvMsg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.editText1 = (EditText) findViewById(R.id.txt_num1);
-        this.editText2 = (EditText) findViewById(R.id.txt_num2);
-        this.textView = (TextView) findViewById(R.id.txt_resultado);
+        this.etQuim = (EditText) findViewById(R.id.TXT_QUIM);
+        this.etCalc = (EditText) findViewById(R.id.TXT_CALC);
+        this.etInv = (EditText) findViewById(R.id.TXT_INVE);
+        this.etSis = (EditText) findViewById(R.id.TXT_SISTE);
+        this.tvMsg = (TextView) findViewById(R.id.TXT_MESSAGE);
     }
 
-    // Este metodo realiza suma
-    public void suma(View view) {
-        String valor1 = this.editText1.getText().toString();
-        String valor2 = this.editText2.getText().toString();
+    // Este metodo realiza calculo de promedio
+    public void calculo(View view) {
 
-        int num1 = Integer.parseInt(valor1);
-        int num2 = Integer.parseInt(valor2);
+        Double promedio = Double.parseDouble(this.etCalc.getText().toString()) + Double.parseDouble(this.etSis.getText().toString()) + Double.parseDouble(this.etInv.getText().toString()) + Double.parseDouble(this.etQuim.getText().toString());
+        promedio = promedio / 4;
+        String msg = promedio < 7 ? "REPROBADO CALIFICACIÓN DE " : "APROBADO CALIFICACIÓN DE ";
 
-        int suma = num1 + num2;
-
-        String resultado = String.format("%s %s", this.textView.getText(), String.valueOf(suma));
-
-        this.textView.setText(resultado);
+        this.tvMsg.setText(msg + promedio.toString());
     }
 }
