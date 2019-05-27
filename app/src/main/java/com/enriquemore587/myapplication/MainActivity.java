@@ -4,34 +4,37 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText etQuim;
-    private EditText etCalc;
-    private EditText etInv;
-    private EditText etSis;
-    private TextView tvMsg;
+    private EditText et1, et2;
+    private TextView tvResultado;
+    private RadioButton rbSuma, rbResta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.etQuim = (EditText) findViewById(R.id.TXT_QUIM);
-        this.etCalc = (EditText) findViewById(R.id.TXT_CALC);
-        this.etInv = (EditText) findViewById(R.id.TXT_INVE);
-        this.etSis = (EditText) findViewById(R.id.TXT_SISTE);
-        this.tvMsg = (TextView) findViewById(R.id.TXT_MESSAGE);
+
+        this.et1 = (EditText) findViewById(R.id.TXT_PRIMER_VALOR);
+        this.et2 = (EditText) findViewById(R.id.TXT_SEGUNDO_VALOR);
+        this.tvResultado = (TextView) findViewById(R.id.TV_RESULTADO);
+        this.rbSuma = (RadioButton) findViewById(R.id.RB_SUMAR);
+        this.rbResta = (RadioButton) findViewById(R.id.RB_RESTAR);
     }
 
-    // Este metodo realiza calculo de promedio
-    public void calculo(View view) {
-
-        Double promedio = Double.parseDouble(this.etCalc.getText().toString()) + Double.parseDouble(this.etSis.getText().toString()) + Double.parseDouble(this.etInv.getText().toString()) + Double.parseDouble(this.etQuim.getText().toString());
-        promedio = promedio / 4;
-        String msg = promedio < 7 ? "REPROBADO CALIFICACIÓN DE " : "APROBADO CALIFICACIÓN DE ";
-
-        this.tvMsg.setText(msg + promedio.toString());
+    public void calcular(View view) {
+        Integer value1 = Integer.parseInt(this.et1.getText().toString());
+        Integer value2 = Integer.parseInt(this.et2.getText().toString());
+        if (this.rbSuma.isChecked()) {
+            Integer resultado = value1 + value2;
+            this.tvResultado.setText(String.valueOf(resultado));
+        } else if (this.rbResta.isChecked()) {
+            Integer resultado = value1 - value2;
+            this.tvResultado.setText(String.valueOf(resultado));
+        }
     }
+
 }

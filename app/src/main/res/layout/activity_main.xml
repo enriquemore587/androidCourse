@@ -10,16 +10,18 @@
         android:id="@+id/btn_sumar"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:onClick="calculo"
-        android:text="@string/btn_calcular_promedio"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:onClick="calcular"
+        android:text="@string/btn_calcular"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TXT_SISTE" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        tools:text="@string/btn_calcular" />
 
     <EditText
-        android:id="@+id/TXT_QUIM"
+        android:id="@+id/TXT_PRIMER_VALOR"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -28,7 +30,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:ems="10"
-        android:hint="@string/txt_quimica"
+        android:hint="@string/txt_primer_valor"
         android:inputType="number"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/TXT_MESSAGE" />
 
     <EditText
-        android:id="@+id/TXT_CALC"
+        android:id="@+id/TXT_SEGUNDO_VALOR"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -46,48 +48,12 @@
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:ems="10"
-        android:hint="@string/txt_calculo"
+        android:hint="@string/txt_segundo_valor"
         android:inputType="number"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TXT_QUIM" />
-
-    <EditText
-        android:id="@+id/TXT_INVE"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:ems="10"
-        android:hint="@string/txt_investigacion"
-        android:inputType="number"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TXT_CALC" />
-
-    <EditText
-        android:id="@+id/TXT_SISTE"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:ems="10"
-        android:hint="@string/txt_sistemas"
-        android:inputType="number"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TXT_INVE" />
+        app:layout_constraintTop_toBottomOf="@+id/TXT_PRIMER_VALOR" />
 
     <TextView
         android:id="@+id/TXT_MESSAGE"
@@ -98,11 +64,47 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:text="@string/tV_calculo_edad"
+        android:text="@string/tV_title"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TXT_SEGUNDO_VALOR">
+
+        <RadioButton
+            android:id="@+id/RB_SUMAR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rb_sumar" />
+
+        <RadioButton
+            android:id="@+id/RB_RESTAR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rb_restar" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/TV_RESULTADO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:text="@string/tV_resultado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TXT_SEGUNDO_VALOR" />
 
 </android.support.constraint.ConstraintLayout>

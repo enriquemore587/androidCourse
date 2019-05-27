@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">MyApplication1</string>
-    <string name="tV_calculo_edad">Calculadora de promedio final</string>
-    <string name="txt_quimica">QUIMICA</string>
-    <string name="txt_calculo">CALCULO</string>
-    <string name="txt_investigacion">INVESTIGACIÓN</string>
-    <string name="txt_sistemas">SISTEMAS OPERATIVOS</string>
-    <string name="btn_calcular_promedio">CALCULAR PROMEDIO</string>
+    <string name="tV_title">OPERACIONES ARITMETICAS</string>
+    <string name="tV_resultado">RESULTADO</string>
+    <string name="txt_primer_valor">PRIMER VALOR</string>
+    <string name="txt_segundo_valor">SEGUNDO VALOR</string>
+    <string name="rb_sumar">SUMAR</string>
+    <string name="rb_restar">RESTAR</string>
+    <string name="btn_calcular">CALCULAR</string>
 </resources>
